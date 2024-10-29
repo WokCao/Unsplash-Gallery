@@ -32,8 +32,7 @@ function HomePage() {
                 }
             });
             if (response.data.length > 0) {
-                if (page > 5) setHasMore(false);
-                else setPhotos([...photos, ...response.data]);
+                setPhotos([...photos, ...response.data]);
             } else {
                 setHasMore(false);
             }
@@ -46,6 +45,7 @@ function HomePage() {
     useEffect(() => {
         fetchData(currentPage);
     }, []);
+
 
     return (
         <div className="container mx-auto">
