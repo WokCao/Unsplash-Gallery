@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+    .mobile {
+        display: block !important;
+    }
+
+    .window {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .window:hover {
+        opacity: 1;
+    }
+}
