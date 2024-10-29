@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import HomePage from './Components/HomePage';
 import DetailsPage from './Components/DetailPage';
 import Header from './Components/Header';
@@ -10,11 +10,13 @@ function App() {
     <Router>
       <Header />
       <main className="container mx-auto py-8">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/details/:id" element={<DetailsPage />} />
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
+        <BrowserRouter basename="/Unsplash-Gallery">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/details/:id" element={<DetailsPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
       </main>
       <Footer />
     </Router>

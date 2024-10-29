@@ -47,10 +47,6 @@ function HomePage() {
         fetchData(currentPage);
     }, []);
 
-    //absolute inset-0 flex items-center justify-center 
-    //0 hover:opacity-100
-    //transition duration-200 
-
     return (
         <div className="container mx-auto">
             <h1 className="text-3xl font-bold text-center mb-4">Unsplash Photos</h1>
@@ -63,7 +59,7 @@ function HomePage() {
                 <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 px-8">
                     {photos.map((photo) => (
                         <div key={photo.id} className="h-full relative">
-                            <Link to={`/details/${photo.id}`}>
+                            <Link to={`/Unsplash-Gallery/details/${photo.id}`}>
                                 <img
                                     src={photo.urls.small}
                                     alt={photo.alt_description}
