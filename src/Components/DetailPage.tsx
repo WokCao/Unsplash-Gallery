@@ -12,6 +12,7 @@ function DetailsPage() {
 
     useEffect(() => {
         const fetchData = async () => {
+            // show loading spinner why fetching image detail
             setIsLoading(true);
             setError(null);
             try {

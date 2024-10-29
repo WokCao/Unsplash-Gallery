@@ -1,4 +1,5 @@
 function ErrorPage() {
+    // return if users enter unhandled pages
     return (
         <div className="text-center text-red-500 font-bold">
             <p>Error: Page not found</p>

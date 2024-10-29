@@ -31,12 +31,14 @@ function HomePage() {
                     Authorization: `Client-ID ${import.meta.env.VITE_REACT_APP_UNSPLASH_ACCESS_KEY}`
                 }
             });
+            // if length of response = 0 -> no more images
             if (response.data.length > 0) {
                 setPhotos([...photos, ...response.data]);
             } else {
                 setHasMore(false);
             }
         } catch (error) {
+            // when the number of requests reach the limit (50)
             console.error(error);
             setError(`Failed to fetch more photos (${error})`);
         }
@@ -60,6 +62,9 @@ function HomePage() {
                     {photos.map((photo) => (
                         <div key={photo.id} className="h-full relative">
                             <Link to={`/Unsplash-Gallery/details/${photo.id}`}>
+                                {/* show images in case of mobile or window screen
+                                - window: hover to see the author's name
+                                - mobile: the author's name is shown right below the image */}
                                 <img
                                     src={photo.urls.small}
                                     alt={photo.alt_description}
@@ -92,6 +97,8 @@ function HomePage() {
                     ))}
                 </div>
             </InfiniteScroll>
+
+            {/* handle if no more images loaded */}
 
             {!hasMore ?
                 (<div className='text-center font-bold mt-5 text-xl text-stone-400'><FontAwesomeIcon className='me-1' icon={faTriangleExclamation} />No more images</div>) : null}
